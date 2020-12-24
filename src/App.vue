@@ -1,15 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    name: {{ user.name }}
+    <br>
+    age: {{ user.age }}
+
+    <button @click="changeState">change state</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { useStore } from 'vuex'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  },
+  data() {
+    return {
+      teste: 'ola'
+    }
+  },
+  methods: {
+    changeState() {
+      this.$store.dispatch('setName', 'Macedo')
+      this.$store.dispatch('setAge', 18)
+    }
+  },
+  setup() {
+    const store = useStore()
+    return {
+      user: store.state.user
+    }
   }
 }
 </script>

@@ -1,41 +1,11 @@
 <template>
-  <div>
-    name: {{ user.name }}
-    <br>
-    age: {{ user.age }}
-
-    <button @click="changeState">change state</button>
-  </div>
+  <router-view />
 </template>
 
 <script>
-import { useStore } from 'vuex'
-import useUserRepository from './functions/useUserRepository'
 
 export default {
-  name: 'App',
-  components: {
-  },
-  data() {
-    return {
-      teste: 'ola'
-    }
-  },
-  methods: {
-    changeState() {
-      this.$store.dispatch('setName', 'Macedo')
-      this.$store.dispatch('setAge', 18)
-    }
-  },
-  setup() {
-    const store = useStore()
-
-    const { user } = useUserRepository()
-
-    return {
-      user: store.state.user
-    }
-  }
+  name: 'App'
 }
 </script>
 

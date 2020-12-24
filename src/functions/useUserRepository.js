@@ -1,4 +1,4 @@
-import { watch, computed, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export default userId => {
     const user = ref({
@@ -22,7 +22,7 @@ export default userId => {
     onMounted(getUser)
 
     return {
-        user
+        user: user.value
     }
 
 }

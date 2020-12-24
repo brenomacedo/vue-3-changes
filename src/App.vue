@@ -10,6 +10,7 @@
 
 <script>
 import { useStore } from 'vuex'
+import useUserRepository from './functions/useUserRepository'
 
 export default {
   name: 'App',
@@ -28,6 +29,9 @@ export default {
   },
   setup() {
     const store = useStore()
+
+    const { user } = useUserRepository()
+
     return {
       user: store.state.user
     }
